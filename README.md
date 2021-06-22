@@ -90,3 +90,6 @@ _____________________________________________________
 
 ### gera a imagem através do Dockerfile com a tag "salazar:node-image" utilizando o "contexto" da pasta atual "."
 $ docker build -f Dockerfile -t salazar:node-image . 
+
+### Subir container com a imagem gerada
+$ docker run -d -p 8080:3000 salazar:node-image
