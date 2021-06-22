@@ -88,5 +88,5 @@ _____________________________________________________
 
 ### Build de imagem através de Dockerfile
 
-### gera a imagem através do Dockerfile com a tag "salazar/node"
-$ docker build -f Dockerfile -t salazar/node
+### gera a imagem através do Dockerfile com a tag "salazar:node-image" utilizando o "contexto" da pasta atual "."
+$ docker build -f Dockerfile -t salazar:node-image . 
