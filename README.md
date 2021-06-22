@@ -83,3 +83,10 @@ $ docker run -d -p 8080:3000 -v “/home/projects/node-app:/var/www” -w /var/w
 ### otimizando e usando o diretório atual para mapear com a pasta do container
 
 $ docker run -d -p 8080:3000 -v “$(pwd):/var/www” -w /var/www” node npm start
+
+_____________________________________________________
+
+### Build de imagem através de Dockerfile
+
+### gera a imagem através do Dockerfile com a tag "salazar/node"
+$ docker build -f Dockerfile -t salazar/node
