@@ -93,3 +93,33 @@ $ docker build -f Dockerfile -t salazar:node-image .
 
 ### Subir container com a imagem gerada
 $ docker run -d -p 8080:3000 salazar:node-image
+
+_____________________________________________________
+
+### Networking no Docker
+
+Quando subo os containers no docker, automaticamente, eles pertencem a mesma rede (default network) criadas pelo Docker Host.
+Entretanto, pela rede default, só posso me comunicar com outros containers através de IPs e não pelo nome do container.
+
+#### Criação de rede 
+
+As redes tipo "bridge" atendem em 90% dos casos (permitem comunicação entre os containers como a rede default)
+$ docker network create --driver bridge minha-rede
+
+Atrelar container na rede criada na imagem do ubuntu (container ubuntu)
+$ docker run -it --name meu-container --network minha-rede ubuntu
+
+Inpecionar se os containers estão rodando na mesma rede
+$ docker network inspect minha-rede
+
+### Docker Compose
+
+$ docker-compose build - Realiza o build dos serviços relacionados ao arquivo docker-compose.yml, assim como verifica a sua sintaxe.
+$ docker-compose up - Sobe todos os containers relacionados ao docker-compose, desde que o build já tenha sido executado.
+$ docker-compose down - Para todos os serviços em execução que estejam relacionados ao arquivo docker-compose.yml.
+$ docker-compose restart - Executa o up e o down
+
+$ docker-compose up - sobe os serviços criados
+$ docker-compose down - para os serviços criados.
+$ docker-compose ps - lista os serviços que estão rodando.
+$ docker exec -it alura-books-1 ping node2- executa o comando ping node2 dentro do container alura-books-1
